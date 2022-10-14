@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="forms.css">
+
+</head>
+
+<body>
+
+    <form>
+        <div class="container">
+            <h1>Password Reset</h1>
+            <p>Please enter your new password.</p>
+            <hr>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Please Enter your Username" name="username" id="username" required>
+            <label for="psw"><b>Current Password</b></label>
+            <input type="password" placeholder="Please Enter your Current Password" name="psw" id="psw" onkeyup="validate_psw(1)" required>
+            <label for="new-psw"><b> New Password</b></label>
+            <input type="password" placeholder="Please Enter A New Password" name="psw" id="psw" onkeyup="validate_psw(1)" required>
+            <label for="new-psw-rpt"><b>Repeat New Password</b></label>
+            <input type="password" placeholder="Please Repeat the New Password" name="psw" id="psw" onkeyup="validate_psw(1)" required>
+            <hr>
+            <button type="submit" class="btn">Change Password</button>
+        </div>
+
+        <div class="container footer">
+            <a>Cancel</a>
+        </div>
+    </form>
+</body>
+
+</html>

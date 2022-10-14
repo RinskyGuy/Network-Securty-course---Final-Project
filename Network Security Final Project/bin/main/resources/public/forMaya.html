@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<title>Communication_LTD</title>
+<link rel="stylesheet" href="welcome.css">
+</head>
+<script>
+    function change_text_appear(){
+        
+        text = document.getElementById("comment").value
+        document.getElementById("text_appear").innerHTML = text
+    }
+	
+</script>
+<body>
+	<div class="main_page">
+		<div class="page_header floating_element">
+			<img
+				src="https://png.pngtree.com/png-clipart/20200701/original/pngtree-hacker-vector-illustration-design-with-mask-png-image_5391062.jpg"
+				alt="Ubuntu Logo" class="floating_element" width="150" height="150" />
+		</div>
+
+		<div class="content_section floating_element"
+			style="width: 100%; margin: 0 auto;">
+			<div class="section_header section_header_red">
+				<div id="about"></div>
+				<p id="welcome">Welcome to Communication_LTD website</p>
+			</div>
+
+            <form>
+
+                <label for="comment" class="required">Your message</label>
+                <textarea name="comment" id="comment" rows="2" tabindex="4"></textarea>
+                <!-- <button  name="submit" onclick="change_text_appear()">Submit</button> -->
+                
+                
+              </form>
+              <button  name="submit" onclick="change_text_appear()">Submit</button>
+              <p id="text_appear"></p>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

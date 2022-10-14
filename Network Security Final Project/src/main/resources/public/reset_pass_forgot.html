@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="forms.css">
+
+</head>
+
+<body>
+
+    <form method="POST" action="https://localhost:8443/resetPassForgot" th:object="${ResetPasswordBoundary}" enctype="application/json">
+        <div class="container">
+            <h1>Password Reset</h1>
+            <p>Please enter your new password.</p>
+            <hr>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Please Enter your Username" name="username" th:field=*{username} id="username" required>
+            <label for="psw"><b>New Password</b></label>
+            <input type="password" placeholder="Please Enter A new Password" name="newPassword"  th:field=*{newPassword} id="newPassword" onkeyup="validate_psw(1)" required>
+            <label for="psw-rpt"><b>Repeat New Password</b></label>
+            <input type="password" placeholder="Please Repeat the New Password" name="repeatPassword"  th:field=*{repeatPassword} id="repeatPassword" onkeyup="validate_psw(1)" required>
+            <hr>
+            <button type="submit" class="btn">Change Password</button>
+        </div>
+
+        <div class="container footer">
+            <a>Cancel</a>
+        </div>
+    </form>
+</body>
+
+</html>

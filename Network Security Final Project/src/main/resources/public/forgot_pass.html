@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #sc-pass {
+            background: #f0f0f0;
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 8px;
+            margin-bottom: 2%;
+            transition: opacity 1s;
+        }
+        
+        #sc-pass h1 {
+            background: #3399cc;
+            padding: 20px 0;
+            font-size: 140%;
+            font-weight: 300;
+            text-align: center;
+            color: #fff;
+        }
+        
+        #sc-pass h4 {
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        div#sc-pass .sc-container {
+            background: #f0f0f0;
+            padding: 6% 4%;
+        }
+        
+        div#sc-pass input[type="email"] {
+            width: 92%;
+            background: #fff;
+            margin-bottom: 4%;
+            border: 1px solid #ccc;
+            padding: 4%;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 95%;
+            color: #555;
+        }
+        
+        div#sc-pass input[type="submit"] {
+            width: 100%;
+            background: #3399cc;
+            border: 0;
+            padding: 4%;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 100%;
+            color: #fff;
+            cursor: pointer;
+            transition: background .3s;
+        }
+        
+        div#sc-pass input[type="submit"]:hover {
+            background: #2288bb;
+        }
+        
+        div.sc-container {
+            text-align: center;
+        }
+        
+        a:hover {
+            cursor: pointer;
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+	<form method="POST" action="https://localhost:8443/sendMailCode" th:object="${EmailBoundary}" enctype="application/json">
+    <div id="sc-pass">
+        <h1>Reset Password</h1>
+        <h4>Please enter your email and we will send you a code which will act as your temporary password to your email</h4>
+        <div class="sc-container">
+        	<input type="text" placeholder="Enter your Username" id="username" name="username" th:field="*{username}">
+            <input type="submit" value="Send Confirmation code">
+            <a href=" index.html ">Cancel</a>
+        </div>
+    </div>
+    </form>
+
+</body>
+
+</html>

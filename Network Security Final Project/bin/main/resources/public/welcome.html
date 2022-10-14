@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<title>Communication_LTD</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<style>
+
+
+
+</style>
+<script>
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var username = url.searchParams.get("username");
+	console.log(username);
+	
+	
+   
+</script>
+<body>
+	<div class="main_page">
+		<div class="page_header floating_element">
+			<img
+				src="https://png.pngtree.com/png-clipart/20200701/original/pngtree-hacker-vector-illustration-design-with-mask-png-image_5391062.jpg"
+				alt="Ubuntu Logo" class="floating_element" width="150" height="150" />
+		</div>
+
+		<div class="content_section floating_element"
+			style="width: 100%; margin: 0 auto;">
+			<div class="section_header section_header_red">
+				<div id="about"></div>
+				<p id="welcome"></p>
+				<script>document.getElementById("welcome").innerHTML = "Welcome " + username</script>
+				<Center>
+				<table class="table table-stripped">
+
+					<thead style="color:black">
+						<tr>
+							<th>Username</th>
+
+						</tr>
+					</thead>
+					<tbody id="data" style="color:black">
+
+					</tbody>
+				</table>
+				</Center>
+
+				<script>
+				fetch("https://localhost:8443/getAllUsers", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Connection": "keep-alive",
+        },
+      })
+      .then(res => res.json().then(
+        data => {
+          console.log(data);
+          if(data.length > 0) {
+          console.log("table");
+            var temp = "";
+            data.forEach((u) => {
+            console.log(u.username);
+              temp += "<tr>";
+              temp += "<td>" + u.username + "</td></tr>";
+              console.log(temp);
+            })
+            console.log(temp);
+            document.getElementById("data").innerHTML = temp;
+          }
+        }))
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+				</script>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+* {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+body,
+html {
+    padding: px 3px 3px 3px;
+    background-color: #D8DBE2;
+    font-family: Verdana, sans-serif;
+    font-size: 11pt;
+    text-align: center;
+}
+
+div.main_page {
+    display: table;
+    height: 350px;
+    width: 900px;
+    margin-top: 100px;
+    margin-bottom: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: #212738;
+    border-style: solid;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+div.page_header {
+    height: 99px;
+    width: 100%;
+    background-color: #F5F6F7;
+}
+
+div.page_header img {
+    margin: 3px 0px 0px 40px;
+    border: 0px 0px 0px;
+}
+
+div.content_section {
+    margin: 3px 3px 3px 3px;
+    background-color: #FFFFFF;
+    text-align: left;
+}
+
+div.content_section button {
+    position: relative;
+    left: 80px;
+    top: 20px;
+}
+
+
+div.content_section_text {
+    padding: 4px 8px 4px 8px;
+    height: 60%;
+    color: #000000;
+    font-size: 100%;
+}
+
+div.content_section_text li {
+    padding: 4px 8px 4px 16px;
+}
+
+div.section_header {
+    padding: 3px 6px 3px 6px;
+    background-color: #8E9CB2;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 112%;
+    text-align: center;
+}
+
+div.section_header_red {
+    height: 30px;
+    font-size: 22px;
+    background-color: #CD214F;
+}
+
+.floating_element {
+    position: relative;
+    float: left;
+    border-radius: 15px;
+}
+
+.content_section_text .inputs {
+    display: inline;
+    float: left;
+    margin-top: 30px;
+    font-family: cursive;
+}
+
+.content_section_text .inputs .text-box {
+    height: 20px;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.content_section_text .submit-button {
+    float: left;
+    margin-left: 120px;
+    height: 35px;
+    width: 80px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.content_section_text .submit-button:hover {
+    color: rgb(255, 0, 0);
+}
+
+div.content_section_text a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ol {
+    display: inline;
+    list-style: none;
+}
+
+div.content_section_text a:hover {
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+}

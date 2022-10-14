@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="forms.css">
+
+</head>
+
+<script>
+    //This function check if cookie exist, if yes so it will represent the name of the user
+	function checkCookie() {
+	  var user = getCookie("username");
+	  
+	  if (user == "") {
+
+		user = document.getElementById("username").value;
+		if (user != "" && user != null) {
+	      	setCookie("username", user, 365);
+	  	}
+	  }else{
+  		var changedUser = document.getElementById("username").value;
+
+  		if (changedUser != "" && changedUser != null) {
+      		setCookie("username", changedUser, 365);
+  		}
+	  	
+	  }
+	}
+
+	//This function search for existing cookie, return the cookie if exist
+	function getCookie(cname) {
+	  var name = cname + "=";
+	  var ca = document.cookie.split(';');
+	  for(var i = 0; i < ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return "";
+	}
+	
+	function setCookie(cname, cvalue, exdays) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	  var expires = "expires="+d.toUTCString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+</script>
+
+<body>
+
+    <form method="POST" action="https://localhost:8443/signup" th:object="${RegisterBoundary}" enctype="multipart/form-data">
+        <div class="container">
+            <h1>Register</h1>
+            <p>Bad password/username - try again! </p>
+            <hr>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" th:field="*{email}" id="email" required>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" id="username" placeholder="Enter Username" name="username" th:field="*{username}" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" th:field="*{password}" onfocus="display_constraints(1)" onblur="hide_constraints(1)" onkeyup="validate_psw(1)"  minlength="6" required>
+
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="repeatPassword" id="repeatPassword" th:field="*{repeatPassword}" onfocus="display_constraints(0)" onblur="hide_constraints(0)" onkeyup="validate_psw(0)" minlength="6" required>
+            <hr>
+
+
+            <button type="submit" class="btn" onclick="checkCookie()">Register</button>
+        </div>
+
+        <div class="container footer">
+            <p>Already have an account? <a href="index.html">Sign in</a>.</p>
+        </div>
+    </form>
+    <div class="passw" id="psw_constraints">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
+    <div class="passw" id="rpt_psw_constraints">
+        <h3>Password must contain the following:</h3>
+        <p id="rpt_ps " class="invalid"><b>Same</b> passwords</p>
+        <p id="tst" class="invalid" value="" text></p>
+    </div>
+    <script src="register.js "></script>
+
+</body>
+
+</html>
